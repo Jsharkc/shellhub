@@ -42,20 +42,7 @@ export default {
     return {
       drawer: true,
       clipped: false,
-    };
-  },
-
-  computed: {
-    visibleItems() {
-      return this.items.filter((item) => item.hidden !== false);
-    },
-
-    currentInANamespace() {
-      return localStorage.getItem('tenant') !== '';
-    },
-
-    items() {
-      return [
+      items: [
         {
           title: 'Profile',
           path: '/settings',
@@ -69,7 +56,22 @@ export default {
           title: 'Private Keys',
           path: '/settings/private-keys',
         },
-      ];
+        {
+          title: 'Billing',
+          path: '/settings/billing',
+          hidden: !this.$env.isCloud,
+        },
+      ],
+    };
+  },
+
+  computed: {
+    visibleItems() {
+      return this.items.filter((item) => !item.hidden);
+    },
+
+    currentInANamespace() {
+      return localStorage.getItem('tenant') !== '';
     },
   },
 };

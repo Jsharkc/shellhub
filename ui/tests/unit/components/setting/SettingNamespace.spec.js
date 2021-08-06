@@ -356,11 +356,9 @@ describe('SettingNamespace', () => {
       expect(wrapper.find('[data-test="userOperation-div"]').exists()).toEqual(false);
       expect(wrapper.find('[data-test="deleteOperation-div"]').exists()).toEqual(false);
       expect(wrapper.find('[data-test="securityOperation-div"]').exists()).toEqual(false);
-      expect(wrapper.find('[data-test="notTheOwner-span"]').exists()).toEqual(true);
       expect(wrapper.findAll('[data-test="removeMember-btn"]').length).toEqual(0);
       expect(wrapper.find('[data-test="role-div"]').exists()).toEqual(false);
       expect(wrapper.find('[data-test="newMember-div"]').exists()).toEqual(false);
-      expect(wrapper.find('[data-test=namespaceOwnerMessage-p]').text()).toEqual(namespaceOwnerMessage);
     });
   });
 

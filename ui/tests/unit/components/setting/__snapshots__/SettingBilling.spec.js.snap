@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingBilling Renders the component 1`] = `
+<div class="container">
+  <div class="row mt-4 align-center justify-center">
+    <div class="col-sm-8 col">
+      <!---->
+      <div>
+        <div class="row">
+          <div class="col">
+            <h3>
+              Subscription info
+            </h3>
+          </div>
+          <div class="spacer"></div>
+          <!---->
+        </div>
+        <div class="mt-6 pl-4 pr-4">
+          <div>
+            <p>
+              Plan: <b> </b></p>
+            <p>
+              Description: In this plan, the amount is charged according to the number of
+              devices used.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 mb-4">
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="mt-6">
+          <div class="row">
+            <div class="col">
+              <h3>
+                Next bill
+              </h3>
+            </div>
+          </div>
+          <div class="mt-6 pl-4 pr-4">
+            <p>
+              Date: <b> </b></p>
+            <p>
+              Estimated total: <b> $ </b></p>
+          </div>
+        </div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="mt-6">
+          <div class="row">
+            <div class="col">
+              <h3>
+                Payment method details
+              </h3>
+            </div>
+            <div class="spacer"></div>
+            <div class="ml-auto col-md-auto col">
+              <fragment-stub data-test="updatePaymentMethod-component"><button type="button" class="v-btn v-btn--outlined theme--light v-size--default"><span class="v-btn__content">
+    update
+  </span></button>
+                <div>
+                  <div role="dialog" class="v-dialog__container">
+                    <!---->
+                  </div>
+                </div>
+              </fragment-stub>
+            </div>
+          </div>
+          <div class="mt-5 pl-4 pr-4">
+            <p>
+              <!---->
+              / -
+            </p>
+          </div>
+        </div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="mt-6">
+          <div class="row">
+            <div class="col">
+              <h3>
+                Cancel Subscription
+              </h3>
+            </div>
+          </div>
+          <div class="mt-2 pl-4">
+            <div class="row">
+              <div class="col">
+                <p>
+                  When canceling subscription, you may lose access to devices.
+                </p>
+              </div>
+              <div class="spacer"></div>
+              <div class="ml-auto col-md-auto col"><button type="button" class="v-btn v-btn--outlined theme--light v-size--default red--text text--darken-1" data-test="cancel-btn"><span class="v-btn__content">
+                  Cancel
+                </span></button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

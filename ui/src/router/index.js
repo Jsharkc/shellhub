@@ -142,6 +142,11 @@ const router = new Router({
           name: 'privateKeysSettings',
           component: () => import('@/components/setting/SettingPrivateKeys'),
         },
+        {
+          path: 'billing',
+          name: 'billingSettings',
+          component: () => import('@/components/setting/SettingBilling'),
+        },
       ],
     },
     {

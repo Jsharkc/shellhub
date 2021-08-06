@@ -7,7 +7,7 @@
       :to="{name: 'namespaceSettings'}"
     >
       {{ namespace.devices_count }}
-
+      
       <font-awesome-icon
         class="ml-3 fa-lg"
         icon="microchip"

@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BillingDialogPaymentMethod Button Renders the component 1`] = `
+<fragment-stub>
+  <v-btn-stub outlined="true" tag="button" activeclass="" type="button" data-test="show-btn">
+    update
+  </v-btn-stub>
+  <v-dialog-stub opendelay="0" closedelay="0" contentclass="" maxwidth="600" origin="center center" retainfocus="true" transition="dialog-transition" width="auto">
+    <v-card-stub loaderheight="4" tag="div" data-test="BillingDialogPaymentMethod-dialog">
+      <v-card-title-stub datatest="text-cardTitle" data-test="text-cardTitle" class="headline grey lighten-2 text-center">
+        Update payment method
+      </v-card-title-stub>
+      <v-card-text-stub>
+        <v-card-stub loaderheight="4" tag="div" class="ma-4">
+          <v-col-stub tag="div">
+            <div></div>
+          </v-col-stub>
+        </v-card-stub>
+        <div role="alert" class="card-errors ma-4"></div>
+        <v-spacer-stub></v-spacer-stub>
+        <v-row-stub tag="div" class="mt-2 mb-2">
+          <v-spacer-stub></v-spacer-stub>
+          <v-col-stub md="auto" tag="div" class="ml-auto"></v-col-stub>
+        </v-row-stub>
+      </v-card-text-stub>
+      <v-card-actions-stub class="mr-5 pb-5">
+        <v-spacer-stub></v-spacer-stub>
+        <v-btn-stub outlined="true" tag="button" activeclass="" type="button" data-test="confirm-btn">
+          confirm
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </v-card-stub>
+  </v-dialog-stub>
+</fragment-stub>
+`;
+
+exports[`BillingDialogPaymentMethod Dialog Subscription Renders the component 1`] = `
+<fragment-stub>
+  <v-btn-stub outlined="true" tag="button" activeclass="" type="button" data-test="show-btn">
+    update
+  </v-btn-stub>
+  <v-dialog-stub opendelay="0" closedelay="0" contentclass="" maxwidth="600" origin="center center" retainfocus="true" transition="dialog-transition" width="auto" value="true">
+    <v-card-stub loaderheight="4" tag="div" data-test="BillingDialogPaymentMethod-dialog">
+      <v-card-title-stub datatest="text-cardTitle" data-test="text-cardTitle" class="headline grey lighten-2 text-center">
+        Update payment method
+      </v-card-title-stub>
+      <v-card-text-stub>
+        <v-card-stub loaderheight="4" tag="div" class="ma-4">
+          <v-col-stub tag="div">
+            <div></div>
+          </v-col-stub>
+        </v-card-stub>
+        <div role="alert" class="card-errors ma-4"></div>
+        <v-spacer-stub></v-spacer-stub>
+        <v-row-stub tag="div" class="mt-2 mb-2">
+          <v-spacer-stub></v-spacer-stub>
+          <v-col-stub md="auto" tag="div" class="ml-auto"></v-col-stub>
+        </v-row-stub>
+      </v-card-text-stub>
+      <v-card-actions-stub class="mr-5 pb-5">
+        <v-spacer-stub></v-spacer-stub>
+        <v-btn-stub outlined="true" tag="button" activeclass="" type="button" data-test="confirm-btn">
+          confirm
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </v-card-stub>
+  </v-dialog-stub>
+</fragment-stub>
+`;
+
+exports[`BillingDialogPaymentMethod Dialog Update Renders the component 1`] = `
+<fragment-stub>
+  <v-btn-stub outlined="true" tag="button" activeclass="" type="button" data-test="show-btn">
+    update
+  </v-btn-stub>
+  <v-dialog-stub opendelay="0" closedelay="0" contentclass="" maxwidth="600" origin="center center" retainfocus="true" transition="dialog-transition" width="auto" value="true">
+    <v-card-stub loaderheight="4" tag="div" data-test="BillingDialogPaymentMethod-dialog">
+      <v-card-title-stub datatest="text-cardTitle" data-test="text-cardTitle" class="headline grey lighten-2 text-center">
+        Update payment method
+      </v-card-title-stub>
+      <v-card-text-stub>
+        <v-card-stub loaderheight="4" tag="div" class="ma-4">
+          <v-col-stub tag="div">
+            <div></div>
+          </v-col-stub>
+        </v-card-stub>
+        <div role="alert" class="card-errors ma-4"></div>
+        <v-spacer-stub></v-spacer-stub>
+        <v-row-stub tag="div" class="mt-2 mb-2">
+          <v-spacer-stub></v-spacer-stub>
+          <v-col-stub md="auto" tag="div" class="ml-auto"></v-col-stub>
+        </v-row-stub>
+      </v-card-text-stub>
+      <v-card-actions-stub class="mr-5 pb-5">
+        <v-spacer-stub></v-spacer-stub>
+        <v-btn-stub outlined="true" tag="button" activeclass="" type="button" data-test="confirm-btn">
+          confirm
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </v-card-stub>
+  </v-dialog-stub>
+</fragment-stub>
+`;
