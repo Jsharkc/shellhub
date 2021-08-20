@@ -348,3 +348,18 @@ func (s *Store) DeviceGetByUID(ctx context.Context, uid models.UID, tenant strin
 
 	return device, nil
 }
+
+func (s *Store) DeviceSetPosition(ctx context.Context, uid models.UID, position models.DevicePosition) error {
+	_, err := s.db.Collection("devices").UpdateOne(ctx, bson.M{"uid": uid}, bson.M{"$set": bson.M{"position": position}})
+
+	return err
+}
+
+func (s *Store) DeviceGetPosition(ctx context.Context, uid models.UID) (*models.DevicePosition, error) {
+	var device *models.Device
+	if err := s.db.Collection("devices").FindOne(ctx, bson.M{"uid": uid}).Decode(device); err != nil {
+		return nil, err
+	}
+
+	return device.Position, nil
+}
