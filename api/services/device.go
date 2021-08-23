@@ -25,6 +25,10 @@ type DeviceService interface {
 	UpdateDeviceStatus(ctx context.Context, uid models.UID, online bool) error
 	UpdatePendingStatus(ctx context.Context, uid models.UID, status, tenant, ownerID string) error
 	HandleReports(ns *models.Namespace, ui models.UID, inc bool, device *models.Device) error
+	CreateTag(ctx context.Context, uid models.UID, name string) error
+	DeleteTag(ctx context.Context, uid models.UID, name string) error
+	RenameTag(ctx context.Context, uid models.UID, name string) error
+	ListTag(ctx context.Context) ([]string, int, error)
 }
 
 func (s *service) HandleReports(ns *models.Namespace, uid models.UID, inc bool, device *models.Device) error {
@@ -194,4 +198,49 @@ func (s *service) UpdatePendingStatus(ctx context.Context, uid models.UID, statu
 	}
 
 	return s.store.DeviceUpdateStatus(ctx, uid, status)
+}
+
+func (s *service) CreateTag(ctx context.Context, uid models.UID, name string) error {
+	device, err := s.store.DeviceGetByUID(ctx, uid, tenant)
+	if err != nil {
+		return err
+	}
+
+	if errs := validate.Var(name, "required,min=3,max=25,alphanum,ascii"); err != nil {
+		return errs
+	}
+
+	if len(device.Tags) > 5 {
+		return ErrMaxTagReached
+	}
+
+	device.Tags = append(device.Tags, name)
+
+	return s.store.DeviceCreateTag(ctx, device)
+}
+
+func (s *service) DeleteTag(ctx context.Context, uid models.UID, name string) error {
+	device, err := s.store.DeviceGetByUID(ctx, uid, tenant)
+	if err != nil {
+		return err
+	}
+
+	return s.store.DeviceDeleteTag(ctx, uid, name)
+}
+
+func (s *service) RenameTag(ctx context.Context, uid models.UID, name string) error {
+	device, err := s.store.DeviceGetByUID(ctx, uid, tenant)
+	if err != nil {
+		return err
+	}
+
+	if errs := validate.Var(name, "required,min=3,max=25,alphanum,ascii"); err != nil {
+		return errs
+	}
+
+	return s.store.DeviceRenameTag(ctx, uid, name)
+}
+
+func (s *service) ListTag(ctx context.Context) ([]string, int, error) {
+	return s.store.DeviceListTag(ctx)
 }

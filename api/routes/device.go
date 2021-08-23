@@ -18,6 +18,10 @@ const (
 	OfflineDeviceURL = "/devices/:uid/offline"
 	LookupDeviceURL  = "/lookup"
 	UpdateStatusURL  = "/devices/:uid/:status"
+	CreateTagURL     = "/devices/:uid/tags"
+	DeleteTagURL     = "/devices/:uid/tags/:name"
+	RenameTagURL     = "/devices/:uid/tags/:name"
+	ListTagURL       = "/devices/tags"
 )
 
 const TenantIDHeader = "X-Tenant-ID"
@@ -169,4 +173,77 @@ func (h *Handler) UpdatePendingStatus(c apicontext.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, nil)
+}
+
+func (h *Handler) CreateTag(c apicontext.Context) error {
+	var req struct {
+		Name string `json:"name"`
+	}
+
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	if err := h.service.CreateTag(c.Ctx(), models.UID(c.Param("uid")), req.Name); err != nil {
+		if err == services.ErrUnauthorized {
+			return c.NoContent(http.StatusForbidden)
+		}
+
+		return err
+	}
+
+	return c.JSON(http.StatusOK, nil)
+}
+
+func (h *Handler) DeleteTag(c apicontext.Context) error {
+	var req struct {
+		Name string `json:"name"`
+	}
+
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	if err := h.service.DeleteTag(c.Ctx(), models.UID(c.Param("uid")), req.Name); err != nil {
+		if err == services.ErrUnauthorized {
+			return c.NoContent(http.StatusForbidden)
+		}
+
+		return err
+	}
+
+	return c.JSON(http.StatusOK, nil)
+}
+
+func (h *Handler) RenameTag(c apicontext.Context) error {
+	var req struct {
+		Name string `json:"name"`
+	}
+
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	err := h.service.RenameTag(c.Ctx(), models.UID(c.Param("uid")), req.Name)
+	switch err {
+	case services.ErrUnauthorized:
+		return c.NoContent(http.StatusForbidden)
+	case services.ErrInvalidFormat:
+		return c.NoContent(http.StatusBadRequest)
+	case services.ErrMaxTagReached:
+		return c.NoContent(http.StatusForbidden)
+	default:
+		return err
+	}
+
+	return c.JSON(http.StatusOK, nil)
+}
+
+func (h *handler) ListTag(c apicontext.Context) error {
+	tags, size, err := h.services.ListTag(c.Ctx())
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, size, tags)
 }

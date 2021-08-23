@@ -19,6 +19,7 @@ type Device struct {
 	Status     string          `json:"status" bson:"status,omitempty" validate:"oneof=accepted rejected pending unused`
 	CreatedAt  time.Time       `json:"created_at" bson:"created_at,omitempty"`
 	RemoteAddr string          `json:"remote_addr" bson:"remote_addr"`
+	Tags       []string        `json:"tags" bson:"tags"`
 }
 
 type DeviceAuthClaims struct {

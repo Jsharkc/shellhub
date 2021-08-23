@@ -209,6 +209,10 @@ func (s *Store) DeviceCreate(ctx context.Context, d models.Device, hostname stri
 		logrus.Error(err)
 	}
 
+	if d.Tags == nil {
+		d.Tags = []string{}
+	}
+
 	q := bson.M{
 		"$setOnInsert": bson.M{
 			"name":       hostname,

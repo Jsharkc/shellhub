@@ -19,4 +19,7 @@ type DeviceStore interface {
 	DeviceGetByMac(ctx context.Context, mac, tenant, status string) (*models.Device, error)
 	DeviceGetByName(ctx context.Context, name, tenant string) (*models.Device, error)
 	DeviceGetByUID(ctx context.Context, uid models.UID, tenant string) (*models.Device, error)
+	DeviceCreateTag(ctx context.Context, device *models.Device) error
+	DeviceDeleteTag(ctx context.Context, uid models.UID) error
+	DeviceRenameTag(ctx context.Context, uid models.UID, name string) error
 }
